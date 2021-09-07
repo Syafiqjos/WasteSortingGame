@@ -7,6 +7,7 @@ public class HowToPlayManager : MonoBehaviour
 {
     public GameObject[] tutorialsStep;
     public Trashbin trashbin;
+    public TrashbinController trashbinController;
 
     int step = 0;
 
@@ -39,9 +40,24 @@ public class HowToPlayManager : MonoBehaviour
 
 
         //Special Condition
-        if (step == 2) trashbin.ChangeTrashType(TrashType.Green);
-        else if (step == 3) trashbin.ChangeTrashType(TrashType.Yellow);
-        else if (step == 4) trashbin.ChangeTrashType(TrashType.Red);
+        if (step == 2)
+        {
+            trashbin.ChangeTrashType(TrashType.Green);
+            trashbinController.Moveable = false;
+            trashbinController.ResetPosition();
+        }
+        else if (step == 3)
+        {
+            trashbin.ChangeTrashType(TrashType.Yellow);
+            trashbinController.Moveable = false;
+            trashbinController.ResetPosition();
+        }
+        else if (step == 4)
+        {
+            trashbin.ChangeTrashType(TrashType.Red);
+            trashbinController.Moveable = false;
+            trashbinController.ResetPosition();
+        }
     }
 
     private void BackToMainMenu()

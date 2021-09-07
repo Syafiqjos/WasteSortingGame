@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TrashbinController : MonoBehaviour
 {
+    public bool Moveable { get; set; } = true;
+
     public float borderLeft;
     public float borderRight;
 
@@ -19,7 +21,10 @@ public class TrashbinController : MonoBehaviour
 
     private void Update()
     {
-        Controller();
+        if (Moveable)
+        {
+            Controller();
+        }
     }
 
     private void Controller()
@@ -72,5 +77,12 @@ public class TrashbinController : MonoBehaviour
         {
             dragged = false;
         }
+    }
+
+    public void ResetPosition()
+    {
+        Vector3 pos = transform.position;
+        pos.x = 0;
+        transform.position = pos;
     }
 }

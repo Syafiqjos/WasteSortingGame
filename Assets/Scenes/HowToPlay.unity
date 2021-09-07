@@ -431,6 +431,7 @@ MonoBehaviour:
   - {fileID: 687418087}
   - {fileID: 203470570}
   trashbin: {fileID: 3814250309040444363}
+  trashbinController: {fileID: 1164960723}
 --- !u!4 &124886878
 Transform:
   m_ObjectHideFlags: 0
@@ -3620,6 +3621,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3533125269782005242, guid: 66f0440367104a7409cfee0e9a4806f6, type: 3}
   m_PrefabInstance: {fileID: 3533125270903093404}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1164960723 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1829343278852526872, guid: afac05dfc39fee14d887395af815ede5, type: 3}
+  m_PrefabInstance: {fileID: 3814250309040444358}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a76db8d6003404aa19a920e7291a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1201313537
 GameObject:
   m_ObjectHideFlags: 0
