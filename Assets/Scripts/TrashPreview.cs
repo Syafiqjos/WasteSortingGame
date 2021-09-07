@@ -19,7 +19,7 @@ public class TrashPreview : MonoBehaviour
     [Range(0, 180)] public float minRotateLength;
     [Range(0, 180)] public float maxRotateLength;
 
-    private void Start()
+    private void Awake()
     {
         RandomizeProperties();
     }

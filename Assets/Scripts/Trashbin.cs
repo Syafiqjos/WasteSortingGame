@@ -35,7 +35,12 @@ public class Trashbin : MonoBehaviour
 
     public void ChangeNextTrashType()
     {
-        trashType = (TrashType)(((int)trashType + 1) % trashTypeCount);
+        ChangeTrashType((TrashType)(((int)trashType + 1) % trashTypeCount));
+    }
+
+    public void ChangeTrashType(TrashType trashType)
+    {
+        this.trashType = trashType;
     }
 
     private void RefreshTrashType()
