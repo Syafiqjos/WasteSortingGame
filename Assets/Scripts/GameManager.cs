@@ -184,6 +184,8 @@ public class GameManager : MonoBehaviour
         isGamePaused = true;
         gamePlayUI.SetActive(false);
         gamePausedUI.SetActive(true);
+
+        trashbinController.Moveable = false;
     }
 
     public void UnpauseGame()
@@ -191,5 +193,7 @@ public class GameManager : MonoBehaviour
         isGamePaused = false;
         gamePlayUI.SetActive(true);
         gamePausedUI.SetActive(false);
+
+        trashbinController.Moveable = true;
     }    
 }
