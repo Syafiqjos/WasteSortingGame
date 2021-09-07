@@ -1,18 +1,53 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TrashType
+{
+    Green, Yellow, Red
+}
+
 public class Trashbin : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] private SpriteRenderer trashbinSpriteRenderer;
+    [SerializeField] private Sprite[] trashbinSprites;
+
+    private TrashType _trashType;
+    public TrashType trashType {
+        get
+        {
+            return _trashType;
+        }
+
+        private set {
+            _trashType = value;
+            RefreshTrashType();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private int trashTypeCount;
+
+    private void Awake()
     {
-        
+        trashTypeCount = Enum.GetValues(typeof(TrashType)).Length;
+    }
+
+    public void ChangeNextTrashType()
+    {
+        trashType = (TrashType)(((int)trashType + 1) % trashTypeCount);
+    }
+
+    private void RefreshTrashType()
+    {
+        int typ = (int)trashType;
+
+        if (typ >= 0 && typ < trashTypeCount)
+        {
+            trashbinSpriteRenderer.sprite = trashbinSprites[typ];
+        } else
+        {
+            trashbinSpriteRenderer.sprite = trashbinSprites[0];
+        }
     }
 }

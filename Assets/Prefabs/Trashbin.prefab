@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 404853157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.64, y: 0.64, z: 0.64}
   m_Children: []
   m_Father: {fileID: 3814250310021441327}
   m_RootOrder: 0
@@ -130,6 +130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac09c99127a811c4f9f9920678276d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trashbinSpriteRenderer: {fileID: 404853159}
+  trashbinSprites:
+  - {fileID: 21300000, guid: 9943c75a1cf350049a23a685711603dd, type: 3}
+  - {fileID: 21300000, guid: eec3cc124ad8ea84389121ca46efdd2d, type: 3}
+  - {fileID: 21300000, guid: 80f5630157689674e87a516842f279da, type: 3}
 --- !u!114 &1829343278852526872
 MonoBehaviour:
   m_ObjectHideFlags: 0
