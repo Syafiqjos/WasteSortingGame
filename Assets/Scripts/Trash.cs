@@ -22,7 +22,7 @@ public class Trash : MonoBehaviour
     private void Awake()
     {
         rb2 = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()
