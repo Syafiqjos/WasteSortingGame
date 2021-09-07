@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1628346443483365671, guid: 669c0c7862799674ea4ae8f1508fe0d7, type: 3}
       propertyPath: maxFallSpeed
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1628346443483365671, guid: 669c0c7862799674ea4ae8f1508fe0d7, type: 3}
       propertyPath: minFallSpeed
