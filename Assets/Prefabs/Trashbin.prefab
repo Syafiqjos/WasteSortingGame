@@ -94,6 +94,8 @@ GameObject:
   - component: {fileID: 6359198804946828735}
   - component: {fileID: 1829343278852526872}
   - component: {fileID: 3814250309040444361}
+  - component: {fileID: 3814250309040444360}
+  - component: {fileID: 8103447902074400755}
   m_Layer: 0
   m_Name: Trashbin
   m_TagString: Untagged
@@ -140,6 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a76db8d6003404aa19a920e7291a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  borderLeft: -2.2
+  borderRight: 2.2
 --- !u!210 &3814250309040444361
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -151,3 +155,50 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
+--- !u!50 &3814250309040444360
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3814250310021441326}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
+--- !u!61 &8103447902074400755
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3814250310021441326}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.014463663}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4753982, y: 2.0703206}
+  m_EdgeRadius: 0
