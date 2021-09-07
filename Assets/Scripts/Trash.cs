@@ -5,8 +5,8 @@ using UnityEngine;
 public class Trash : MonoBehaviour
 {
     public TrashType trashType;
-    [HideInInspector] public float fallSpeed;
-    [HideInInspector] public float rotateSpeed;
+    public float fallSpeed;
+    public float rotateSpeed;
 
     [Range(0, 10)] public float minFallSpeed;
     [Range(0, 10)] public float maxFallSpeed;
