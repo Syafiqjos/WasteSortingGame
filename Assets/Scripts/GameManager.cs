@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using Extensione.Audio;
+
 public class GameManager : MonoBehaviour
 {
     public string levelID;
@@ -44,6 +46,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gamePausedUI;
     [SerializeField] private GameObject gameOverZeroTimeUI;
     [SerializeField] private GameObject gameOverZeroLifeUI;
+
+    [SerializeField] private AudioClip rightTrashSFX;
+    [SerializeField] private AudioClip wrongTrashSFX;
 
     private void Start()
     {
@@ -153,10 +158,12 @@ public class GameManager : MonoBehaviour
                 if (trash.trashType == trashbin.trashType)
                 {
                     IncreaseScore();
+                    AudioManager.Instance?.PlaySFXOnce(rightTrashSFX);
                 }
                 else
                 {
                     DecreaseLife();
+                    AudioManager.Instance?.PlaySFXOnce(wrongTrashSFX);
                 }
 
                 Destroy(trash.gameObject);

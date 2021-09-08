@@ -10,7 +10,9 @@ namespace Extensione.Audio
     {
         public static AudioManager Instance { get; private set; }
 
-        [SerializeField] private AudioClip buttonSFX;
+        [SerializeField] private AudioClip buttonTapSFX;
+        [SerializeField] private AudioClip buttonRightSFX;
+        [SerializeField] private AudioClip buttonWrongSFX;
 
         private AudioSource audioMusic;
         private AudioSource audioSFX;
@@ -34,8 +36,6 @@ namespace Extensione.Audio
 
             audioMusic.loop = true;
             audioSFX.loop = false;
-
-            SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         }
 
         private void Update()
@@ -167,22 +167,19 @@ namespace Extensione.Audio
             return audioSFX.volume;
         }
 
-        private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+        public void PlayButtonTapSFX()
         {
-            if (!audioMusic.isPlaying)
-            {
-                audioMusic.Play();
-            }
-
-            foreach (Button b in FindObjectsOfType<Button>())
-            {
-                b.onClick.AddListener(ButtonClick);
-            }
+            PlaySFXOnce(buttonTapSFX);
         }
 
-        private void ButtonClick()
+        public void PlayButtonRightSFX()
         {
-            PlaySFXOnce(buttonSFX);
+            PlaySFXOnce(buttonRightSFX);
+        }
+
+        public void PlayButtonWrongSFX()
+        {
+            PlaySFXOnce(buttonWrongSFX);
         }
     }
 }
