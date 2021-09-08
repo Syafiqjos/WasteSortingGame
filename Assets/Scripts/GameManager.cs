@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     public TrashReceiver trashReceiver;
     public Trashbin trashbin;
     public TrashbinController trashbinController;
+    public TrashDestroyer trashDestroyer;
 
     [SerializeField] private GameObject gamePlayUI;
     [SerializeField] private GameObject gamePausedUI;
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
         remainingTime = timeLeft;
 
         trashReceiver.OnTrashDestroy.AddListener(DestroyTrash);
+        trashDestroyer.OnTrashDestroy.AddListener(DestroyTrashMiss);
 
         isGamePaused = false;
     }
@@ -166,6 +168,19 @@ public class GameManager : MonoBehaviour
                     AudioManager.Instance?.PlaySFXOnce(wrongTrashSFX);
                 }
 
+                Destroy(trash.gameObject);
+            }
+        }
+    }
+
+    public void DestroyTrashMiss(Trash trash)
+    {
+        if (isPlaying)
+        {
+            if (trash)
+            {
+                DecreaseLife();
+                AudioManager.Instance?.PlaySFXOnce(wrongTrashSFX);
                 Destroy(trash.gameObject);
             }
         }
