@@ -114,12 +114,13 @@ namespace Extensione.Audio
                 }
                 else if (fadingState == 2) //fade in
                 {
-                    audioMusic.volume += (1.0f - audioMusic.volume) * 0.1f;
+                    float target = 0.5f;
+                    audioMusic.volume += (target - audioMusic.volume) * 0.1f;
 
-                    if (audioMusic.volume >= 0.98f)
+                    if (audioMusic.volume >= target - 0.02f)
                     {
                         fadingState = 0;
-                        audioMusic.volume = 1.00f;
+                        audioMusic.volume = target;
                     }
                 }
             }
