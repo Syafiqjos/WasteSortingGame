@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TrashPreview : MonoBehaviour
 {
@@ -19,16 +20,22 @@ public class TrashPreview : MonoBehaviour
     [Range(0, 180)] public float minRotateLength;
     [Range(0, 180)] public float maxRotateLength;
 
+    Image image;
+
     private void Awake()
     {
+        image = GetComponentInChildren<Image>();
+        image.enabled = false;
+
         RandomizeProperties();
     }
 
     private void Update()
     {
         rotatePos = (rotatePos + Time.deltaTime * rotateSpeed) % 360;
-
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Sin(rotatePos / 180 * Mathf.PI) * rotateLength);
+
+        image.enabled = true;
     }
 
     private void RandomizeProperties()
