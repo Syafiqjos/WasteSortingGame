@@ -21,12 +21,14 @@ namespace Extensione.Audio
         {
             if (Instance != null)
             {
-                Destroy(this.gameObject);
-                return;
+                // Destroy(this.gameObject);
+                // return;
             }
-
-            Instance = this;
-            DontDestroyOnLoad(Instance);
+            else
+            {
+                Instance = this;
+                DontDestroyOnLoad(Instance);
+            }
 
             audioMusic = gameObject.AddComponent<AudioSource>();
             audioSFX = gameObject.AddComponent<AudioSource>();
