@@ -3027,7 +3027,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 124886877}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LoadNextLevel
+        m_MethodName: RetryLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
