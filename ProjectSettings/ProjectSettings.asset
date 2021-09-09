@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: syqscode
+  companyName: rizakusuma
   productName: Waste Sorting Game
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
