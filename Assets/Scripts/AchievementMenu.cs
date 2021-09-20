@@ -12,6 +12,12 @@ public class AchievementMenu : MonoBehaviour
     public Sprite achievementLocked;
     public Sprite achievementUnlocked;
 
+    [Header("Special Counting Trash")]
+    public Image specialTrashPreview;
+    public Sprite[] specialGreenTrashes;
+    public Sprite[] specialYellowTrashes;
+    public Sprite[] specialRedTrashes;
+
     private void Start()
     {
         GenerateAchievementButtons();
@@ -41,6 +47,64 @@ public class AchievementMenu : MonoBehaviour
 
     private void RefreshAchievementDetails(Button button, AchievementData data)
     {
-        descriptionText.text = data.description;
+        descriptionText.text = data.description.Replace("${value}", data.value.ToString());
+
+        CheckSpecialCountingTrashAchievement(data);
+    }
+
+    private void CheckSpecialCountingTrashAchievement(AchievementData d)
+    {
+        if (d is AchievementCountingTrashData)
+        {
+            AchievementCountingTrashData data = d as AchievementCountingTrashData;
+
+            if (data.trashType == TrashType.Global)
+            {
+                int x = Random.Range(0, 3);
+                if (x == 0)
+                {
+                    specialTrashPreview.sprite = specialGreenTrashes[Random.Range(0, specialGreenTrashes.Length)];
+                }
+                else if (x == 1)
+                {
+                    specialTrashPreview.sprite = specialYellowTrashes[Random.Range(0, specialYellowTrashes.Length)];
+                }
+                else if (x == 2)
+                {
+                    specialTrashPreview.sprite = specialRedTrashes[Random.Range(0, specialRedTrashes.Length)];
+                }
+            }
+            else if (data.trashID != -1)
+            {
+                if (data.trashType == TrashType.Green)
+                {
+                    specialTrashPreview.sprite = specialGreenTrashes[data.trashID];
+                }
+                else if (data.trashType == TrashType.Yellow)
+                {
+                    specialTrashPreview.sprite = specialYellowTrashes[data.trashID];
+                }
+                else if (data.trashType == TrashType.Red)
+                {
+                    specialTrashPreview.sprite = specialRedTrashes[data.trashID];
+                }
+            }
+            else
+            {
+                if (data.trashType == TrashType.Green)
+                {
+                    specialTrashPreview.sprite = specialGreenTrashes[Random.Range(0, specialGreenTrashes.Length)];
+                } else if (data.trashType == TrashType.Yellow)
+                {
+                    specialTrashPreview.sprite = specialYellowTrashes[Random.Range(0, specialYellowTrashes.Length)];
+                } else if (data.trashType == TrashType.Red)
+                {
+                    specialTrashPreview.sprite = specialRedTrashes[Random.Range(0, specialRedTrashes.Length)];
+                }
+            }
+        } else
+        {
+            specialTrashPreview.sprite = null;
+        }
     }
 }

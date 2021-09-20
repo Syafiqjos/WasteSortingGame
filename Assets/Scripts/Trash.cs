@@ -38,7 +38,8 @@ public class Trash : MonoBehaviour
         int leftRightMult = Random.value >= 0.5 ? 1 : -1;
         rotateSpeed = leftRightMult * Random.Range(minRotateSpeed, maxRotateSpeed);
 
-        spriteRenderer.sprite = sprites[Random.Range(0, sprites.Length)];
+        trashID = Random.Range(0, sprites.Length);
+        spriteRenderer.sprite = sprites[trashID];
     }
 
     private void Update()
