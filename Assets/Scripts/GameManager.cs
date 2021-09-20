@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 using Extensione.Audio;
@@ -42,6 +43,9 @@ public class GameManager : MonoBehaviour
     public Trashbin trashbin;
     public TrashbinController trashbinController;
     public TrashDestroyer trashDestroyer;
+
+    public UnityEvent<Trash> OnRightTrash;
+    public UnityEvent<Trash> OnWrongTrash;
 
     [SerializeField] private GameObject gamePlayUI;
     [SerializeField] private GameObject gamePausedUI;
@@ -125,6 +129,7 @@ public class GameManager : MonoBehaviour
         {
             isGameOver = true;
             SaveHighscore();
+            AchievementManager.Instance?.SaveAchievement();
 
             gamePlayUI.SetActive(false);
             gamePausedUI.SetActive(false);
@@ -159,11 +164,13 @@ public class GameManager : MonoBehaviour
             {
                 if (trash.trashType == trashbin.trashType)
                 {
+                    OnRightTrash.Invoke(trash);
                     IncreaseScore();
                     AudioManager.Instance?.PlaySFXOnce(rightTrashSFX);
                 }
                 else
                 {
+                    OnWrongTrash.Invoke(trash);
                     DecreaseLife();
                     AudioManager.Instance?.PlaySFXOnce(wrongTrashSFX);
                 }

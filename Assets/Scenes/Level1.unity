@@ -281,6 +281,12 @@ MonoBehaviour:
   trashbin: {fileID: 3814250309040444363}
   trashbinController: {fileID: 969150121}
   trashDestroyer: {fileID: 559811569}
+  OnRightTrash:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWrongTrash:
+    m_PersistentCalls:
+      m_Calls: []
   gamePlayUI: {fileID: 186789159}
   gamePausedUI: {fileID: 526756207}
   gameOverZeroTimeUI: {fileID: 1656627903}
@@ -3930,6 +3936,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6123740264916842600, guid: afac05dfc39fee14d887395af815ede5, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 124886877}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afac05dfc39fee14d887395af815ede5, type: 3}
 --- !u!114 &3814250309040444363 stripped

@@ -366,7 +366,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Get a total of 60 Green bin trash
+  m_text: Tap the button to see the progress
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9d8b8b0f03a3d548a8b2bf231c9d0df, type: 2}
   m_sharedMaterial: {fileID: -2516908177269509948, guid: f9d8b8b0f03a3d548a8b2bf231c9d0df, type: 2}
@@ -1547,7 +1547,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1805015840}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: GotoAchievementMenu
+        m_MethodName: GotoMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 3814250309040444361}
   - component: {fileID: 3814250309040444360}
   - component: {fileID: 8103447902074400755}
+  - component: {fileID: 6123740264916842600}
   m_Layer: 0
   m_Name: Trashbin
   m_TagString: Untagged
@@ -281,3 +282,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4753982, y: 2.0703206}
   m_EdgeRadius: 0
+--- !u!114 &6123740264916842600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3814250310021441326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7a320c6093ba145b75f6710c44d029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trashReceiver: {fileID: 1986655791}

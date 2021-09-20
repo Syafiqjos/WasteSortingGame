@@ -3,10 +3,11 @@ using System.Collections.Generic;
 
 public class AchievementCountingTrashRegisterer : MonoBehaviour
 {
-    public TrashReceiver trashReceiver;
+    private GameManager gameManager;
 
     private void Start()
     {
+        gameManager = GameObject.Find("GameManager")?.GetComponent<GameManager>();
         RegisterAchievement();
     }
 
@@ -18,7 +19,10 @@ public class AchievementCountingTrashRegisterer : MonoBehaviour
         {
             if (data.Value is AchievementCountingTrashData)
             {
-                trashReceiver.OnTrashDestroy.AddListener((data.Value as AchievementCountingTrashData).SubscribeTrigger);
+                if (gameManager)
+                {
+                    gameManager.OnRightTrash.AddListener((data.Value as AchievementCountingTrashData).SubscribeTrigger);
+                }
             }
         }
     }

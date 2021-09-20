@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Extensione.Audio;
 
 public class AchievementMenu : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class AchievementMenu : MonoBehaviour
             foreach (var x in AchievementManager.Instance.achievementConfig.achievements)
             {
                 GameObject ne = Instantiate(achievementButton);
-                ne.transform.parent = transform;
+                ne.transform.SetParent(transform);
 
                 Button button = ne.GetComponent<Button>();
                 if (button)
@@ -40,6 +41,11 @@ public class AchievementMenu : MonoBehaviour
                         RefreshAchievementDetails(button, data);
                     });
                     button.image.sprite = data.Unlocked() ? achievementUnlocked : achievementLocked;
+
+                    if (AudioManager.Instance)
+                    {
+                        button.onClick.AddListener(AudioManager.Instance.PlayButtonTapSFX);
+                    }
                 }
             }
         }
@@ -58,7 +64,7 @@ public class AchievementMenu : MonoBehaviour
         {
             AchievementCountingTrashData data = d as AchievementCountingTrashData;
 
-            if (data.trashType == TrashType.Global)
+            if (data.trashTypeGlobal)
             {
                 int x = Random.Range(0, 3);
                 if (x == 0)
