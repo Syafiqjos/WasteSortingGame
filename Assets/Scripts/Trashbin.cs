@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum TrashType
 {
-    Green, Yellow, Red
+    Global, Green, Yellow, Red
 }
 
 public class Trashbin : MonoBehaviour

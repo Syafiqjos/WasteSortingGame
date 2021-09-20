@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Trash : MonoBehaviour
 {
+    public int trashID;
     public TrashType trashType;
     public float fallSpeed;
     public float rotateSpeed;

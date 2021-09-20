@@ -24,12 +24,21 @@ public class MainMenuManager : MonoBehaviour
         {
             GotoHowToPlay();
         }
-
     }
 
     public void GotoHowToPlay()
     {
         HasBeenWatchHowToPlay = true;
         SceneManager.LoadScene("HowToPlay");
+    }
+
+    public void GotoAchievementMenu()
+    {
+        SceneManager.LoadScene("AchievementMenu");
+    }
+
+    public void GotoMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
