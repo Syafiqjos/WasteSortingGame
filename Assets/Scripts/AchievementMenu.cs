@@ -47,6 +47,8 @@ public class AchievementMenu : MonoBehaviour
                         button.onClick.AddListener(AudioManager.Instance.PlayButtonTapSFX);
                     }
                 }
+
+                ne.transform.localScale = Vector3.one;
             }
         }
     }

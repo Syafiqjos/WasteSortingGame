@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 [System.Serializable]
 public class AchievementData
 {
-    public string title;
-    public string description;
+    public string title { get; set; }
+    public string description { get; set; }
     public int value;
-    public int max;
+    public int max { get; set; }
 
     public AchievementData(string title, string description, int max)
     {
@@ -262,29 +262,29 @@ public class AchievementManager : MonoBehaviour
     {
         achievementConfig = new AchievementConfig();
 
-        achievementConfig.AddAchievement("green_0_trash_count", new AchievementCountingTrashData("Green 0 Trash Count", "Get a total of ${value}/10 showed Green trash", 10, false, TrashType.Green, 0));
-        achievementConfig.AddAchievement("green_1_trash_count", new AchievementCountingTrashData("Green 1 Trash Count", "Get a total of ${value}/10 showed Green trash", 10, false, TrashType.Green, 1));
-        achievementConfig.AddAchievement("green_2_trash_count", new AchievementCountingTrashData("Green 2 Trash Count", "Get a total of ${value}/10 showed Green trash", 10, false, TrashType.Green, 2));
-        achievementConfig.AddAchievement("green_3_trash_count", new AchievementCountingTrashData("Green 3 Trash Count", "Get a total of ${value}/10 showed Green trash", 10, false, TrashType.Green, 3));
-        achievementConfig.AddAchievement("green_4_trash_count", new AchievementCountingTrashData("Green 4 Trash Count", "Get a total of ${value}/10 showed Green trash", 10, false, TrashType.Green, 4));
-        achievementConfig.AddAchievement("green_5_trash_count", new AchievementCountingTrashData("Green 5 Trash Count", "Get a total of ${value}/10 showed Green trash", 10, false, TrashType.Green, 5));
-        achievementConfig.AddAchievement("green_6_trash_count", new AchievementCountingTrashData("Green 6 Trash Count", "Get a total of ${value}/10 showed Green trash", 10, false, TrashType.Green, 6));
+        achievementConfig.AddAchievement("green_0_trash_count", new AchievementCountingTrashData("Green 0 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Green, 0));
+        achievementConfig.AddAchievement("green_1_trash_count", new AchievementCountingTrashData("Green 1 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Green, 1));
+        achievementConfig.AddAchievement("green_2_trash_count", new AchievementCountingTrashData("Green 2 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Green, 2));
+        achievementConfig.AddAchievement("green_3_trash_count", new AchievementCountingTrashData("Green 3 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Green, 3));
+        achievementConfig.AddAchievement("green_4_trash_count", new AchievementCountingTrashData("Green 4 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Green, 4));
+        achievementConfig.AddAchievement("green_5_trash_count", new AchievementCountingTrashData("Green 5 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Green, 5));
+        achievementConfig.AddAchievement("green_6_trash_count", new AchievementCountingTrashData("Green 6 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Green, 6));
 
-        achievementConfig.AddAchievement("yellow_0_trash_count", new AchievementCountingTrashData("Yellow 0 Trash Count", "Get a total of ${value}/10 showed Yellow bin trash", 10, false, TrashType.Yellow, 0));
-        achievementConfig.AddAchievement("yellow_1_trash_count", new AchievementCountingTrashData("Yellow 1 Trash Count", "Get a total of ${value}/10 showed Yellow bin trash", 10, false, TrashType.Yellow, 1));
-        achievementConfig.AddAchievement("yellow_2_trash_count", new AchievementCountingTrashData("Yellow 2 Trash Count", "Get a total of ${value}/10 showed Yellow bin trash", 10, false, TrashType.Yellow, 2));
-        achievementConfig.AddAchievement("yellow_3_trash_count", new AchievementCountingTrashData("Yellow 3 Trash Count", "Get a total of ${value}/10 showed Yellow bin trash", 10, false, TrashType.Yellow, 3));
-        achievementConfig.AddAchievement("yellow_4_trash_count", new AchievementCountingTrashData("Yellow 4 Trash Count", "Get a total of ${value}/10 showed Yellow bin trash", 10, false, TrashType.Yellow, 4));
-        achievementConfig.AddAchievement("yellow_5_trash_count", new AchievementCountingTrashData("Yellow 5 Trash Count", "Get a total of ${value}/10 showed Yellow bin trash", 10, false, TrashType.Yellow, 5));
-        achievementConfig.AddAchievement("yellow_6_trash_count", new AchievementCountingTrashData("Yellow 6 Trash Count", "Get a total of ${value}/10 showed Yellow bin trash", 10, false, TrashType.Yellow, 6));
+        achievementConfig.AddAchievement("yellow_0_trash_count", new AchievementCountingTrashData("Yellow 0 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Yellow, 0));
+        achievementConfig.AddAchievement("yellow_1_trash_count", new AchievementCountingTrashData("Yellow 1 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Yellow, 1));
+        achievementConfig.AddAchievement("yellow_2_trash_count", new AchievementCountingTrashData("Yellow 2 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Yellow, 2));
+        achievementConfig.AddAchievement("yellow_3_trash_count", new AchievementCountingTrashData("Yellow 3 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Yellow, 3));
+        achievementConfig.AddAchievement("yellow_4_trash_count", new AchievementCountingTrashData("Yellow 4 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Yellow, 4));
+        achievementConfig.AddAchievement("yellow_5_trash_count", new AchievementCountingTrashData("Yellow 5 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Yellow, 5));
+        achievementConfig.AddAchievement("yellow_6_trash_count", new AchievementCountingTrashData("Yellow 6 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Yellow, 6));
 
-        achievementConfig.AddAchievement("red_0_trash_count", new AchievementCountingTrashData("Red 0 Trash Count", "Get a total of ${value}/10 showed Red bin trash", 10, false, TrashType.Red, 0));
-        achievementConfig.AddAchievement("red_1_trash_count", new AchievementCountingTrashData("Red 1 Trash Count", "Get a total of ${value}/10 showed Red bin trash", 10, false, TrashType.Red, 1));
-        achievementConfig.AddAchievement("red_2_trash_count", new AchievementCountingTrashData("Red 2 Trash Count", "Get a total of ${value}/10 showed Red bin trash", 10, false, TrashType.Red, 2));
-        achievementConfig.AddAchievement("red_3_trash_count", new AchievementCountingTrashData("Red 3 Trash Count", "Get a total of ${value}/10 showed Red bin trash", 10, false, TrashType.Red, 3));
-        achievementConfig.AddAchievement("red_4_trash_count", new AchievementCountingTrashData("Red 4 Trash Count", "Get a total of ${value}/10 showed Red bin trash", 10, false, TrashType.Red, 4));
-        achievementConfig.AddAchievement("red_5_trash_count", new AchievementCountingTrashData("Red 5 Trash Count", "Get a total of ${value}/10 showed Red bin trash", 10, false, TrashType.Red, 5));
-        achievementConfig.AddAchievement("red_6_trash_count", new AchievementCountingTrashData("Red 6 Trash Count", "Get a total of ${value}/10 showed Red bin trash", 10, false, TrashType.Red, 6));
+        achievementConfig.AddAchievement("red_0_trash_count", new AchievementCountingTrashData("Red 0 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Red, 0));
+        achievementConfig.AddAchievement("red_1_trash_count", new AchievementCountingTrashData("Red 1 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Red, 1));
+        achievementConfig.AddAchievement("red_2_trash_count", new AchievementCountingTrashData("Red 2 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Red, 2));
+        achievementConfig.AddAchievement("red_3_trash_count", new AchievementCountingTrashData("Red 3 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Red, 3));
+        achievementConfig.AddAchievement("red_4_trash_count", new AchievementCountingTrashData("Red 4 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Red, 4));
+        achievementConfig.AddAchievement("red_5_trash_count", new AchievementCountingTrashData("Red 5 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Red, 5));
+        achievementConfig.AddAchievement("red_6_trash_count", new AchievementCountingTrashData("Red 6 Trash Count", "Get a total of ${value}/10 showed trash", 10, false, TrashType.Red, 6));
 
         achievementConfig.AddAchievement("green_trash_count_10", new AchievementCountingTrashData("Green Trash Count", "Get a total of ${value}/10 Green bin trash", 10, false, TrashType.Green));
         achievementConfig.AddAchievement("green_trash_count_30", new AchievementCountingTrashData("Green Trash Count", "Get a total of ${value}/30 Green bin trash", 30, false, TrashType.Green));
@@ -330,16 +330,6 @@ public class AchievementManager : MonoBehaviour
             Debug.Log(json);
 
             achievementConfig.LoadAchievement(config);
-
-            /*
-            foreach (KeyValuePair<string, AchievementData> pair in achievementConfig.achievements)
-            {
-                if (config.achievements != null && config.ContainsAchievement(pair.Key))
-                {
-                    achievementConfig.SetAchievement(pair.Key, config.GetAchievement(pair.Key).value);
-                }
-            }
-            */
         }
     }
 }
