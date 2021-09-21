@@ -15,6 +15,7 @@ public class AchievementMenu : MonoBehaviour
 
     [Header("Special Counting Trash")]
     public Image specialTrashPreview;
+    public Sprite[] specialTrashbin;
     public Sprite[] specialGreenTrashes;
     public Sprite[] specialYellowTrashes;
     public Sprite[] specialRedTrashes;
@@ -33,6 +34,7 @@ public class AchievementMenu : MonoBehaviour
                 GameObject ne = Instantiate(achievementButton);
                 ne.transform.SetParent(transform);
 
+                /*
                 Button button = ne.GetComponent<Button>();
                 if (button)
                 {
@@ -47,6 +49,14 @@ public class AchievementMenu : MonoBehaviour
                         button.onClick.AddListener(AudioManager.Instance.PlayButtonTapSFX);
                     }
                 }
+                */
+
+                AchievementData data = x.Value;
+                AchievementProgress progress = ne.GetComponent<AchievementProgress>();
+                if (progress)
+                {
+                    progress.Initialize(data, GetSpecialCountingTrashAchievementSprite(data));
+                }
 
                 ne.transform.localScale = Vector3.one;
             }
@@ -60,7 +70,7 @@ public class AchievementMenu : MonoBehaviour
         CheckSpecialCountingTrashAchievement(data);
     }
 
-    private void CheckSpecialCountingTrashAchievement(AchievementData d)
+    private Sprite GetSpecialCountingTrashAchievementSprite(AchievementData d)
     {
         if (d is AchievementCountingTrashData)
         {
@@ -68,48 +78,50 @@ public class AchievementMenu : MonoBehaviour
 
             if (data.trashTypeGlobal)
             {
-                int x = Random.Range(0, 3);
-                if (x == 0)
-                {
-                    specialTrashPreview.sprite = specialGreenTrashes[Random.Range(0, specialGreenTrashes.Length)];
-                }
-                else if (x == 1)
-                {
-                    specialTrashPreview.sprite = specialYellowTrashes[Random.Range(0, specialYellowTrashes.Length)];
-                }
-                else if (x == 2)
-                {
-                    specialTrashPreview.sprite = specialRedTrashes[Random.Range(0, specialRedTrashes.Length)];
-                }
+                return specialTrashbin[3];
             }
             else if (data.trashID != -1)
             {
                 if (data.trashType == TrashType.Green)
                 {
-                    specialTrashPreview.sprite = specialGreenTrashes[data.trashID];
+                    return specialGreenTrashes[data.trashID];
                 }
                 else if (data.trashType == TrashType.Yellow)
                 {
-                    specialTrashPreview.sprite = specialYellowTrashes[data.trashID];
+                    return specialYellowTrashes[data.trashID];
                 }
                 else if (data.trashType == TrashType.Red)
                 {
-                    specialTrashPreview.sprite = specialRedTrashes[data.trashID];
+                    return specialRedTrashes[data.trashID];
                 }
             }
             else
             {
                 if (data.trashType == TrashType.Green)
                 {
-                    specialTrashPreview.sprite = specialGreenTrashes[Random.Range(0, specialGreenTrashes.Length)];
-                } else if (data.trashType == TrashType.Yellow)
+                    return specialTrashbin[0];
+                }
+                else if (data.trashType == TrashType.Yellow)
                 {
-                    specialTrashPreview.sprite = specialYellowTrashes[Random.Range(0, specialYellowTrashes.Length)];
-                } else if (data.trashType == TrashType.Red)
+                    return specialTrashbin[1];
+                }
+                else if (data.trashType == TrashType.Red)
                 {
-                    specialTrashPreview.sprite = specialRedTrashes[Random.Range(0, specialRedTrashes.Length)];
+                    return specialTrashbin[2];
                 }
             }
+        }
+
+        return null;
+    }
+
+    private void CheckSpecialCountingTrashAchievement(AchievementData d)
+    {
+        if (d is AchievementCountingTrashData)
+        {
+            AchievementCountingTrashData data = d as AchievementCountingTrashData;
+
+            specialTrashPreview.sprite = GetSpecialCountingTrashAchievementSprite(data);
         } else
         {
             specialTrashPreview.sprite = null;
