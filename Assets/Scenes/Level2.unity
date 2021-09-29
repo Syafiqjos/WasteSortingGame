@@ -281,6 +281,12 @@ MonoBehaviour:
   trashbin: {fileID: 3814250309040444363}
   trashbinController: {fileID: 969150121}
   trashDestroyer: {fileID: 1736814575}
+  OnRightTrash:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWrongTrash:
+    m_PersistentCalls:
+      m_Calls: []
   gamePlayUI: {fileID: 186789159}
   gamePausedUI: {fileID: 526756207}
   gameOverZeroTimeUI: {fileID: 1656627903}
@@ -994,7 +1000,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671886367}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 1534076249}

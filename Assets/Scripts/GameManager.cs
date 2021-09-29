@@ -119,6 +119,9 @@ public class GameManager : MonoBehaviour
         if (isPlaying)
         {
             gameOverZeroTimeUI?.SetActive(true);
+
+            SaveLevelDone();
+
             GameOver();
         }
     }
@@ -136,6 +139,13 @@ public class GameManager : MonoBehaviour
 
             trashbinController.Moveable = false;
         }
+    }
+
+    private void SaveLevelDone()
+    {
+        string levelDoneKey = $"{levelID}";
+        PlayerPrefs.SetInt(levelDoneKey, 1);
+        PlayerPrefs.Save();
     }
 
     private void SaveHighscore()
