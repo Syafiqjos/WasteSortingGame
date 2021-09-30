@@ -5,10 +5,15 @@ public class AchievementCountingTrashRegisterer : MonoBehaviour
 {
     private GameManager gameManager;
 
+    public bool registerAchievement = true;
+
     private void Start()
     {
-        gameManager = GameObject.Find("GameManager")?.GetComponent<GameManager>();
-        RegisterAchievement();
+        if (registerAchievement)
+        {
+            gameManager = GameObject.Find("GameManager")?.GetComponent<GameManager>();
+            RegisterAchievement();
+        }
     }
 
     private void RegisterAchievement()

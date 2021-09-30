@@ -17,6 +17,8 @@ public class TrashSpawner : MonoBehaviour
     {
         float timeInterval = GetTimeInterval();
         StartCoroutine(SpawnCountdown(timeInterval));
+
+        Debug.Log("Start");
     }
 
     IEnumerator SpawnCountdown(float timer)
@@ -48,5 +50,7 @@ public class TrashSpawner : MonoBehaviour
     {
         GameObject ne = Instantiate(trash, trashParent);
         ne.transform.position = new Vector3(GetSpawnPosXInterval(), trashParent.position.y);
+
+        Debug.Log("Spawn");
     }
 }
