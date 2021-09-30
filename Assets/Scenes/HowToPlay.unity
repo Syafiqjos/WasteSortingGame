@@ -432,6 +432,7 @@ MonoBehaviour:
   - {fileID: 203470570}
   trashbin: {fileID: 3814250309040444363}
   trashbinController: {fileID: 1164960723}
+  nextButton: {fileID: 1458435837}
 --- !u!4 &124886878
 Transform:
   m_ObjectHideFlags: 0

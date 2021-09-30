@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class HowToPlayManager : MonoBehaviour
@@ -8,12 +9,20 @@ public class HowToPlayManager : MonoBehaviour
     public GameObject[] tutorialsStep;
     public Trashbin trashbin;
     public TrashbinController trashbinController;
+    public Button nextButton;
 
     int step = 0;
 
     private void Start()
     {
+        SaveHasBeenTutorial();
         RefreshTutorialStep();
+    }
+
+    private void SaveHasBeenTutorial()
+    {
+        PlayerPrefs.SetInt("Tutorial", 1);
+        PlayerPrefs.Save();
     }
 
     public void NextTutorialStep()

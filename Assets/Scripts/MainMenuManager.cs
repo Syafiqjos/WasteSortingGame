@@ -17,6 +17,11 @@ public class MainMenuManager : MonoBehaviour
 
     public void GotoLevelSelection()
     {
+        if (PlayerPrefs.HasKey("Tutorial"))
+        {
+            HasBeenWatchHowToPlay = true;
+        }
+
         if (HasBeenWatchHowToPlay)
         {
             SceneManager.LoadScene("LevelSelection");
