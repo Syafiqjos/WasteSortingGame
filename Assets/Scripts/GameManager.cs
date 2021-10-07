@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     public Trashbin trashbin;
     public TrashbinController trashbinController;
     public TrashDestroyer trashDestroyer;
+    public TrashSpawner trashSpawner;
 
     public UnityEvent<Trash> OnRightTrash;
     public UnityEvent<Trash> OnWrongTrash;
@@ -93,6 +94,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Award of popup quiz
+    public void IncreaseQuizScore()
+    {
+        gameScore += scoreMultiplier * 3;
+    }
+
     private void DecreaseLife()
     {
         if (isPlaying)
@@ -110,6 +117,7 @@ public class GameManager : MonoBehaviour
         if (isPlaying)
         {
             gameOverZeroLifeUI?.SetActive(true);
+            GameOverDisableGameplayUI();
             GameOver();
         }
     }
@@ -118,27 +126,42 @@ public class GameManager : MonoBehaviour
     {
         if (isPlaying)
         {
-            gameOverZeroTimeUI?.SetActive(true);
-
-            SaveLevelDone();
-
-            GameOver();
+            GameOverDisableGameplayUI();
         }
     }
 
-    private void GameOver()
+    private void GameOverDisableGameplayUI()
     {
         if (isPlaying)
         {
             isGameOver = true;
-            SaveHighscore();
-            AchievementManager.Instance?.SaveAchievement();
 
             gamePlayUI.SetActive(false);
             gamePausedUI.SetActive(false);
 
             trashbinController.Moveable = false;
+            trashSpawner.gameObject.SetActive(false);
         }
+    }
+
+    public void GameOverPopQuiz()
+    {
+        gamePlayUI.SetActive(false);
+        gamePausedUI.SetActive(false);
+
+        gameOverZeroTimeUI?.SetActive(true);
+
+        SaveLevelDone();
+
+        GameOver();
+    }
+
+    public void GameOver()
+    {
+        isGameOver = true;
+
+        SaveHighscore();
+        AchievementManager.Instance?.SaveAchievement();
     }
 
     private void SaveLevelDone()
