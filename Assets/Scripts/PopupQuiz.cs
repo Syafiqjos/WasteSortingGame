@@ -69,9 +69,24 @@ public class PopupQuiz : MonoBehaviour
         questions = new List<QuizQuestion>();
 
         // Kunci jawaban taruh di index 0
-        questions.Add(new QuizQuestion("What rubbish that is not recycleable?", new List<string>(){ "Kitchen Waste", "Plastic Bottle", "Metal" }));
-        questions.Add(new QuizQuestion("Berapakah satu ditambah satu?", new List<string>(){ "Dua", "Satu", "Tiga" }));
-        questions.Add(new QuizQuestion("Pilih yang merah?", new List<string>(){ "Red", "Green", "Blue" }));
+        // questions.Add(new QuizQuestion("What rubbish that is not recycleable?", new List<string>(){ "Kitchen Waste", "Plastic Bottle", "Metal" }));
+        // questions.Add(new QuizQuestion("Berapakah satu ditambah satu?", new List<string>(){ "Dua", "Satu", "Tiga" }));
+        // questions.Add(new QuizQuestion("Pilih yang merah?", new List<string>(){ "Red", "Green", "Blue" }));
+        questions.Add(new QuizQuestion("Which one of these waste that is organic?", new List<string>() { "Grass and Leaves", "Metal", "Plastic" }));
+        questions.Add(new QuizQuestion("Which one of these waste that is organic?", new List<string>() { "Food Leftover", "Soda Can", "Glass" }));
+        questions.Add(new QuizQuestion("Which one of these waste that is organic?", new List<string>() { "Banana Skin", "Broken Joystick", "Sandals" }));
+
+        questions.Add(new QuizQuestion("Which one of these waste that is hard to decompose?", new List<string>() { "Plastic", "Rotten Apple", "Tree Branch" }));
+        questions.Add(new QuizQuestion("Which one of these waste that is hard to decompose?", new List<string>() { "Glass", "Leaves", "Grass" }));
+
+        questions.Add(new QuizQuestion("Which one of these waste that is belong to the Green Trashbin?", new List<string>() { "Food Leftover", "Paper Bag", "Plastic Bag" }));
+        questions.Add(new QuizQuestion("Which one of these waste that is belong to the Green Trashbin?", new List<string>() { "Fish", "Paper Bag", "Window Glass" }));
+
+        questions.Add(new QuizQuestion("Which one of these waste that is belong to the Yellow Trashbin?", new List<string>() { "Paper Bag", "Broken Glass", "Food Leftover" }));
+        questions.Add(new QuizQuestion("Which one of these waste that is belong to the Yellow Trashbin?", new List<string>() { "Brochure", "Broken Glass", "Styrofoam" }));
+
+        questions.Add(new QuizQuestion("Which one of these waste that is belong to the Red Trashbin?", new List<string>() { "Broken Glass", "Newspaper", "Rotten Pear" }));
+        questions.Add(new QuizQuestion("Which one of these waste that is belong to the Red Trashbin?", new List<string>() { "Styrofoam", "Paper Bag", "Rotten Apple" }));
     }
 
     QuizQuestion GetRandomQuestion() {
