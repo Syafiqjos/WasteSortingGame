@@ -60,17 +60,17 @@ public class DatabaseManager : MonoBehaviour
 
     private void LoadLevelsData(string json)
     {
-        // bikin class buat dapetin data
+        DatabaseLevelsData.LoadJSONToLocal(json);
     }
 
     private void LoadScoresData(string json)
     {
-        // bikin class buat dapetin data
+        DatabaseScoresData.LoadJSONToLocal(json);
     }
 
     private void LoadAchievementsData(string json)
     {
-        // bikin class buat dapetin data
+        DatabaseAchievementsData.LoadJSONToLocal(json);
     }
 
     public void SaveData()
