@@ -93,6 +93,67 @@ public class DatabaseManager : MonoBehaviour
 
     private Dictionary<string, object> GetSavedData()
     {
+        Dictionary<string, object> data = new Dictionary<string, object>
+        {
+            ["levels"] = DatabaseLevelsData.GetJSON(),
+            ["scores"] = DatabaseScoresData.GetJSON(),
+            ["achievements"] = DatabaseAchievementsData.GetJSON()
+        };
+
+        return data;
+    }
+}
+
+[System.Serializable]
+public class DatabaseLevelsData
+{
+    public int level1;
+    public int level2;
+    public int level3;
+    public int level4;
+    public int level5;
+    public int level6;
+
+    public static string GetJSON()
+    {
+        DatabaseLevelsData data = new DatabaseLevelsData
+        {
+            level1 = GetLevelStatus("level1"),
+            level2 = GetLevelStatus("level2"),
+            level3 = GetLevelStatus("level3"),
+            level4 = GetLevelStatus("level4"),
+            level5 = GetLevelStatus("level5"),
+            level6 = GetLevelStatus("level6")
+        };
+
+        return JsonUtility.ToJson(data);
+    }
+
+    public static int GetLevelStatus(string key)
+    {
+        if (PlayerPrefs.HasKey(key))
+        {
+            return PlayerPrefs.GetInt(key);
+        }
+
+        return 0;
+    }
+}
+
+[System.Serializable]
+public class DatabaseScoresData
+{
+    public static string GetJSON()
+    {
+        return null;
+    }
+}
+
+[System.Serializable]
+public class DatabaseAchievementsData
+{
+    public static string GetJSON()
+    {
         return null;
     }
 }
