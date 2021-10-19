@@ -129,6 +129,18 @@ public class DatabaseLevelsData
         return JsonUtility.ToJson(data);
     }
 
+    public static void LoadJSONToLocal(string json)
+    {
+        DatabaseLevelsData data = JsonUtility.FromJson<DatabaseLevelsData>(json);
+
+        if (data.level1 == 1) PlayerPrefs.SetInt("level1", 1);
+        if (data.level2 == 1) PlayerPrefs.SetInt("level2", 1);
+        if (data.level3 == 1) PlayerPrefs.SetInt("level3", 1);
+        if (data.level4 == 1) PlayerPrefs.SetInt("level4", 1);
+        if (data.level5 == 1) PlayerPrefs.SetInt("level5", 1);
+        if (data.level6 == 1) PlayerPrefs.SetInt("level6", 1);
+    }
+
     public static int GetLevelStatus(string key)
     {
         if (PlayerPrefs.HasKey(key))
@@ -165,6 +177,18 @@ public class DatabaseScoresData
         return JsonUtility.ToJson(data);
     }
 
+    public static void LoadJSONToLocal(string json)
+    {
+        DatabaseLevelsData data = JsonUtility.FromJson<DatabaseLevelsData>(json);
+
+        if (data.level1 == 1) PlayerPrefs.SetInt("level1_score", 1);
+        if (data.level2 == 1) PlayerPrefs.SetInt("level2_score", 1);
+        if (data.level3 == 1) PlayerPrefs.SetInt("level3_score", 1);
+        if (data.level4 == 1) PlayerPrefs.SetInt("level4_score", 1);
+        if (data.level5 == 1) PlayerPrefs.SetInt("level5_score", 1);
+        if (data.level6 == 1) PlayerPrefs.SetInt("level6_score", 1);
+    }
+
     public static int GetLevelScore(string key)
     {
         if (PlayerPrefs.HasKey(key))
@@ -179,11 +203,14 @@ public class DatabaseScoresData
 [System.Serializable]
 public class DatabaseAchievementsData
 {
-    public string achievements;
-
     public static string GetJSON()
     {
         return GetAchievementsData("achievement");
+    }
+
+    public static void LoadJSONToLocal(string json)
+    {
+        PlayerPrefs.SetString("achievement", json);
     }
 
     public static string GetAchievementsData(string key)
