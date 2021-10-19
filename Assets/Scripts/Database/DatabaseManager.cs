@@ -143,9 +143,36 @@ public class DatabaseLevelsData
 [System.Serializable]
 public class DatabaseScoresData
 {
+    public int level1;
+    public int level2;
+    public int level3;
+    public int level4;
+    public int level5;
+    public int level6;
+
     public static string GetJSON()
     {
-        return null;
+        DatabaseLevelsData data = new DatabaseLevelsData
+        {
+            level1 = GetLevelScore("level1_score"),
+            level2 = GetLevelScore("level2_score"),
+            level3 = GetLevelScore("level3_score"),
+            level4 = GetLevelScore("level4_score"),
+            level5 = GetLevelScore("level5_score"),
+            level6 = GetLevelScore("level6_score")
+        };
+
+        return JsonUtility.ToJson(data);
+    }
+
+    public static int GetLevelScore(string key)
+    {
+        if (PlayerPrefs.HasKey(key))
+        {
+            return PlayerPrefs.GetInt(key);
+        }
+
+        return 0;
     }
 }
 
