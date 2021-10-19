@@ -179,8 +179,20 @@ public class DatabaseScoresData
 [System.Serializable]
 public class DatabaseAchievementsData
 {
+    public string achievements;
+
     public static string GetJSON()
     {
+        return GetAchievementsData("achievement");
+    }
+
+    public static string GetAchievementsData(string key)
+    {
+        if (PlayerPrefs.HasKey(key))
+        {
+            return PlayerPrefs.GetString(key);
+        }
+
         return null;
     }
 }
