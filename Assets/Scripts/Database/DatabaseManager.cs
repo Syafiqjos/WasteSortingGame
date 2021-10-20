@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+using Extensione.Window;
 
 public delegate void OnDatabaseLoad(Dictionary<string, object> data);
 public delegate void OnDatabaseSave(Dictionary<string, object> data);
@@ -19,12 +22,16 @@ public class DatabaseManager : MonoBehaviour
 {
     IDatabase database;
 
+    public Button uploadButton;
+    public Button downloadButton;
+
     private void Awake()
     {
         database = new FirebaseManager();
         database.Initialize();
     }
 
+    /*
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.M))
@@ -36,13 +43,18 @@ public class DatabaseManager : MonoBehaviour
             LoadData();
         }
     }
+    */
 
     public void LoadData()
     {
         if (database != null)
         {
             Debug.Log("Try To Load Data from Database");
-            database.LoadData("saveData", GetUserUniqueIdentifier(), LoadDataHook);
+            WindowMaster.Instance?.Show("Retrieving data..");
+
+            EnableButton(false);
+
+            database.LoadData("saveData", GetUserUniqueIdentifier(), LoadDataHook, LoadDataHookFailed);
         }
     }
 
@@ -67,7 +79,20 @@ public class DatabaseManager : MonoBehaviour
                 LoadAchievementsData(data["achievements"].ToString());
                 Debug.Log(data["achievements"].ToString());
             }
+
+            AchievementManager.Instance?.LoadAchievement();
+
+            WindowMaster.Instance?.Show("Data retrieved from the cloud!");
         }
+
+        EnableButton(true);
+    }
+
+    private void LoadDataHookFailed()
+    {
+        WindowMaster.Instance?.Show("Connection fail or data not found in the cloud.");
+
+        EnableButton(true);
     }
 
     private void LoadLevelsData(string json)
@@ -90,13 +115,26 @@ public class DatabaseManager : MonoBehaviour
         if (database != null)
         {
             Debug.Log("Try To Save Data to Database");
-            database.SaveData("saveData", GetUserUniqueIdentifier(), GetSavedData(), SaveDataHook);
+            WindowMaster.Instance?.Show("Storing data..");
+
+            EnableButton(false);
+
+            database.SaveData("saveData", GetUserUniqueIdentifier(), GetSavedData(), SaveDataHook, SaveDataHookFailed);
         }
     }
 
     private void SaveDataHook(Dictionary<string, object> data)
     {
+        WindowMaster.Instance?.Show("Data stored to the cloud!");
 
+        EnableButton(true);
+    }
+
+    private void SaveDataHookFailed()
+    {
+        WindowMaster.Instance?.Show("Data store attempt to the cloud failed.");
+
+        EnableButton(true);
     }
 
     private string GetUserUniqueIdentifier()
@@ -114,6 +152,12 @@ public class DatabaseManager : MonoBehaviour
         };
 
         return data;
+    }
+
+    private void EnableButton(bool enable)
+    {
+        uploadButton.interactable = enable;
+        downloadButton.interactable = enable;
     }
 }
 
