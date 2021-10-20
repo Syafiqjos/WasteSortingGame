@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Firebase;
 using Firebase.Firestore;
 using Firebase.Extensions;
 
@@ -11,12 +12,23 @@ public class FirebaseManager : IDatabase
 
     public void Initialize()
     {
-        db = FirebaseFirestore.DefaultInstance;
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
+        {
+            DependencyStatus status = task.Result;
+            if (status == DependencyStatus.Available)
+            {
+                db = FirebaseFirestore.DefaultInstance;
+                Debug.Log("Firebase Initialized");
+            } else
+            {
+                Debug.Log("Could not resolve all firebase dependencies: " + status);
+            }
+        });
     }
 
     public bool IsInitialized()
     {
-        return db == null;
+        return db != null;
     }
 
     public void LoadData(string collection, string key, OnDatabaseLoad onDatabaseLoad = null, OnDatabaseFail onDatabaseFail = null)
@@ -36,8 +48,12 @@ public class FirebaseManager : IDatabase
                 else
                 {
                     onDatabaseFail?.Invoke();
+                    Debug.Log("Data Load Fail.");
                 }
             });
+        } else
+        {
+            Debug.Log("Firebase not initialied");
         }
     }
 
@@ -55,8 +71,15 @@ public class FirebaseManager : IDatabase
                 } else if (task.IsFaulted)
                 {
                     onDatabaseFail?.Invoke();
+                    Debug.Log("Data Save Faulted.");
+                } else
+                {
+                    Debug.Log("Unknown error");
                 }
             });
+        } else
+        {
+            Debug.Log("Firebase not initialied");
         }
     }
 }
