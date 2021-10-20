@@ -427,8 +427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57aabf881ede1ac4087f53849f399edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: Level6
-  nextLevelID: Level7
+  levelID: Level8
+  nextLevelID: Level9
   lifeCount: 3
   scoreMultiplier: 10
   timeLeft: 120
@@ -1157,7 +1157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671886367}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 1534076249}
@@ -1203,8 +1203,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 0dd8a308333af3d41b2ae6e1290b47bc, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4f76bd1314b03b0438c2bf88b3524671, type: 3}
+  m_Color: {r: 1, g: 0.7, b: 0.4, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1734,8 +1734,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0dd8a308333af3d41b2ae6e1290b47bc, type: 3}
-  m_Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4f76bd1314b03b0438c2bf88b3524671, type: 3}
+  m_Color: {r: 0.8, g: 0.56, b: 0.32, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4082,11 +4082,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2440717519474759632, guid: 1118ff5367c144544a399dd4e4df9569, type: 3}
       propertyPath: maxInterval
-      value: 4.5
+      value: 4.125
       objectReference: {fileID: 0}
     - target: {fileID: 2440717519474759632, guid: 1118ff5367c144544a399dd4e4df9569, type: 3}
       propertyPath: minInterval
-      value: 3.5
+      value: 3.125
       objectReference: {fileID: 0}
     - target: {fileID: 2440717519474759638, guid: 1118ff5367c144544a399dd4e4df9569, type: 3}
       propertyPath: m_Name
