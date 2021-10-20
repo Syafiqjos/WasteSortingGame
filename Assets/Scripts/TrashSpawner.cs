@@ -10,8 +10,13 @@ public class TrashSpawner : MonoBehaviour
     public float minSpawnPosX;
     public float maxSpawnPosX;
 
+    [Range(0, 10)] public float extraFallSpeed;
+
     [Range(0, 10)] public float minInterval;
     [Range(0, 10)] public float maxInterval;
+
+    [Range(0, 10)] public float minDiagonalSpeed;
+    [Range(0, 10)] public float maxDiagonalSpeed;
 
     void Start()
     {
@@ -41,6 +46,19 @@ public class TrashSpawner : MonoBehaviour
         return Random.Range(minSpawnPosX, maxSpawnPosX);
     }
 
+    private float GetDiagonalSpeed(float spawnPos)
+    {
+        float speed = Random.Range(minDiagonalSpeed, maxDiagonalSpeed);
+
+        // If Spawn Pos in the right side then move diagonal Left
+        if (spawnPos > minSpawnPosX + (maxSpawnPosX - minSpawnPosX) / 2)
+        {
+            speed *= -1;
+        }
+
+        return speed;
+    }
+
     private GameObject SelectRandomTrash()
     {
         return trashes[Random.Range(0, trashes.Length)];
@@ -49,7 +67,14 @@ public class TrashSpawner : MonoBehaviour
     private void SpawnTrash(GameObject trash)
     {
         GameObject ne = Instantiate(trash, trashParent);
-        ne.transform.position = new Vector3(GetSpawnPosXInterval(), trashParent.position.y);
+
+        float spawnPos = GetSpawnPosXInterval();
+
+        ne.transform.position = new Vector3(spawnPos, trashParent.position.y);
+
+        Trash tr = ne.GetComponent<Trash>();
+        tr.diagonalSpeed = GetDiagonalSpeed(spawnPos);
+        tr.extraFallSpeed = extraFallSpeed;
 
         Debug.Log("Spawn");
     }

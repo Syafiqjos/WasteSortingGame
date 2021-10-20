@@ -4082,11 +4082,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2440717519474759632, guid: 1118ff5367c144544a399dd4e4df9569, type: 3}
       propertyPath: maxInterval
-      value: 4.125
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2440717519474759632, guid: 1118ff5367c144544a399dd4e4df9569, type: 3}
       propertyPath: minInterval
-      value: 3.125
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440717519474759632, guid: 1118ff5367c144544a399dd4e4df9569, type: 3}
+      propertyPath: extraFallSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440717519474759632, guid: 1118ff5367c144544a399dd4e4df9569, type: 3}
+      propertyPath: maxDiagonalSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440717519474759632, guid: 1118ff5367c144544a399dd4e4df9569, type: 3}
+      propertyPath: minDiagonalSpeed
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2440717519474759638, guid: 1118ff5367c144544a399dd4e4df9569, type: 3}
       propertyPath: m_Name

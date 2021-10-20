@@ -7,6 +7,8 @@ public class Trash : MonoBehaviour
     public int trashID;
     public TrashType trashType;
     public float fallSpeed;
+    public float extraFallSpeed;
+    public float diagonalSpeed;
     public float rotateSpeed;
 
     [Range(0, 10)] public float minFallSpeed;
@@ -33,7 +35,7 @@ public class Trash : MonoBehaviour
 
     private void RandomizeProperties()
     {
-        fallSpeed = Random.Range(minFallSpeed, maxFallSpeed);
+        fallSpeed = Random.Range(minFallSpeed, maxFallSpeed) + extraFallSpeed;
 
         int leftRightMult = Random.value >= 0.5 ? 1 : -1;
         rotateSpeed = leftRightMult * Random.Range(minRotateSpeed, maxRotateSpeed);
@@ -52,7 +54,7 @@ public class Trash : MonoBehaviour
     {
         if (rb2)
         {
-            rb2.velocity = new Vector2(0, -fallSpeed);
+            rb2.velocity = new Vector2(diagonalSpeed, -fallSpeed);
         }
     }
 
