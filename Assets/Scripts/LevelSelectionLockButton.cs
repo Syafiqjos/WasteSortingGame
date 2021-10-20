@@ -18,7 +18,7 @@ public class LevelSelectionLockButton : MonoBehaviour
     {
         if (checkLock)
         {
-            if (!PlayerPrefs.HasKey(prevLevelID))
+            if (!PlayerPrefs.HasKey(prevLevelID) || PlayerPrefs.GetInt(prevLevelID) != 1)
             {
                 buttonText.SetActive(false);
                 button.image.sprite = lockedButton;
