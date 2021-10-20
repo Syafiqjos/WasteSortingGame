@@ -25,14 +25,23 @@ public class DatabaseManager : MonoBehaviour
         database.Initialize();
     }
 
-    // level unlock
-    // achievement
-    // score
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SaveData();
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            LoadData();
+        }
+    }
 
     public void LoadData()
     {
         if (database != null)
         {
+            Debug.Log("Try To Load Data from Database");
             database.LoadData("saveData", GetUserUniqueIdentifier(), LoadDataHook);
         }
     }
@@ -44,16 +53,19 @@ public class DatabaseManager : MonoBehaviour
             if (data.ContainsKey("levels"))
             {
                 LoadLevelsData(data["levels"].ToString());
+                Debug.Log(data["levels"].ToString());
             }
 
             if (data.ContainsKey("scores"))
             {
                 LoadScoresData(data["scores"].ToString());
+                Debug.Log(data["scores"].ToString());
             }
 
             if (data.ContainsKey("achievements"))
             {
                 LoadAchievementsData(data["achievements"].ToString());
+                Debug.Log(data["achievements"].ToString());
             }
         }
     }
@@ -77,6 +89,7 @@ public class DatabaseManager : MonoBehaviour
     {
         if (database != null)
         {
+            Debug.Log("Try To Save Data to Database");
             database.SaveData("saveData", GetUserUniqueIdentifier(), GetSavedData(), SaveDataHook);
         }
     }
@@ -88,7 +101,7 @@ public class DatabaseManager : MonoBehaviour
 
     private string GetUserUniqueIdentifier()
     {
-        return "U_" + Application.identifier;
+        return "U_" + SystemInfo.deviceUniqueIdentifier;
     }
 
     private Dictionary<string, object> GetSavedData()
@@ -118,12 +131,12 @@ public class DatabaseLevelsData
     {
         DatabaseLevelsData data = new DatabaseLevelsData
         {
-            level1 = GetLevelStatus("level1"),
-            level2 = GetLevelStatus("level2"),
-            level3 = GetLevelStatus("level3"),
-            level4 = GetLevelStatus("level4"),
-            level5 = GetLevelStatus("level5"),
-            level6 = GetLevelStatus("level6")
+            level1 = GetLevelStatus("Level1"),
+            level2 = GetLevelStatus("Level2"),
+            level3 = GetLevelStatus("Level3"),
+            level4 = GetLevelStatus("Level4"),
+            level5 = GetLevelStatus("Level5"),
+            level6 = GetLevelStatus("Level6")
         };
 
         return JsonUtility.ToJson(data);
@@ -133,12 +146,12 @@ public class DatabaseLevelsData
     {
         DatabaseLevelsData data = JsonUtility.FromJson<DatabaseLevelsData>(json);
 
-        if (data.level1 == 1) PlayerPrefs.SetInt("level1", 1);
-        if (data.level2 == 1) PlayerPrefs.SetInt("level2", 1);
-        if (data.level3 == 1) PlayerPrefs.SetInt("level3", 1);
-        if (data.level4 == 1) PlayerPrefs.SetInt("level4", 1);
-        if (data.level5 == 1) PlayerPrefs.SetInt("level5", 1);
-        if (data.level6 == 1) PlayerPrefs.SetInt("level6", 1);
+        PlayerPrefs.SetInt("Level1", data.level1);
+        PlayerPrefs.SetInt("Level2", data.level2);
+        PlayerPrefs.SetInt("Level3", data.level3);
+        PlayerPrefs.SetInt("Level4", data.level4);
+        PlayerPrefs.SetInt("Level5", data.level5);
+        PlayerPrefs.SetInt("Level6", data.level6);
     }
 
     public static int GetLevelStatus(string key)
@@ -164,14 +177,14 @@ public class DatabaseScoresData
 
     public static string GetJSON()
     {
-        DatabaseLevelsData data = new DatabaseLevelsData
+        DatabaseScoresData data = new DatabaseScoresData
         {
-            level1 = GetLevelScore("level1_score"),
-            level2 = GetLevelScore("level2_score"),
-            level3 = GetLevelScore("level3_score"),
-            level4 = GetLevelScore("level4_score"),
-            level5 = GetLevelScore("level5_score"),
-            level6 = GetLevelScore("level6_score")
+            level1 = GetLevelScore("Level1_score"),
+            level2 = GetLevelScore("Level2_score"),
+            level3 = GetLevelScore("Level3_score"),
+            level4 = GetLevelScore("Level4_score"),
+            level5 = GetLevelScore("Level5_score"),
+            level6 = GetLevelScore("Level6_score")
         };
 
         return JsonUtility.ToJson(data);
@@ -179,14 +192,14 @@ public class DatabaseScoresData
 
     public static void LoadJSONToLocal(string json)
     {
-        DatabaseLevelsData data = JsonUtility.FromJson<DatabaseLevelsData>(json);
+        DatabaseScoresData data = JsonUtility.FromJson<DatabaseScoresData>(json);
 
-        if (data.level1 == 1) PlayerPrefs.SetInt("level1_score", 1);
-        if (data.level2 == 1) PlayerPrefs.SetInt("level2_score", 1);
-        if (data.level3 == 1) PlayerPrefs.SetInt("level3_score", 1);
-        if (data.level4 == 1) PlayerPrefs.SetInt("level4_score", 1);
-        if (data.level5 == 1) PlayerPrefs.SetInt("level5_score", 1);
-        if (data.level6 == 1) PlayerPrefs.SetInt("level6_score", 1);
+        PlayerPrefs.SetInt("Level1_score", data.level1);
+        PlayerPrefs.SetInt("Level2_score", data.level2);
+        PlayerPrefs.SetInt("Level3_score", data.level3);
+        PlayerPrefs.SetInt("Level4_score", data.level4);
+        PlayerPrefs.SetInt("Level5_score", data.level5);
+        PlayerPrefs.SetInt("Level6_score", data.level6);
     }
 
     public static int GetLevelScore(string key)
