@@ -50,5 +50,8 @@ MonoBehaviour:
   - {fileID: 3037224028741197006, guid: e78f54490cba97a43bef880f26c1e7cd, type: 3}
   minSpawnPosX: -2.2
   maxSpawnPosX: 2.2
+  extraFallSpeed: 0.4
   minInterval: 4
   maxInterval: 5
+  minDiagonalSpeed: 0
+  maxDiagonalSpeed: 0

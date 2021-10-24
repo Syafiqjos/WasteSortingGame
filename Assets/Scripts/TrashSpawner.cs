@@ -21,7 +21,7 @@ public class TrashSpawner : MonoBehaviour
     void Start()
     {
         float timeInterval = GetTimeInterval();
-        StartCoroutine(SpawnCountdown(timeInterval));
+        StartCoroutine(SpawnCountdown(1.0f));
 
         Debug.Log("Start");
     }

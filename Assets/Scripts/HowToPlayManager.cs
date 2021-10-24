@@ -151,7 +151,7 @@ public class HowToPlayManager : MonoBehaviour
         Destroy(trash.gameObject);
     }
 
-    private void BackToMainMenu()
+    public void BackToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }

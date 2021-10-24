@@ -139,6 +139,11 @@ public class DatabaseManager : MonoBehaviour
 
     private string GetUserUniqueIdentifier()
     {
+        if (PlayerPrefs.HasKey("Username"))
+        {
+            return "S_" + PlayerPrefs.GetString("Username").ToLower();
+        }
+
         return "U_" + SystemInfo.deviceUniqueIdentifier;
     }
 

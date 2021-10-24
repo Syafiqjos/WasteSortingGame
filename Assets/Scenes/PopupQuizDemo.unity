@@ -272,11 +272,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57aabf881ede1ac4087f53849f399edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: Level1
-  nextLevelID: Level2
+  levelID: PopupQuizDemo
+  nextLevelID: PopupQuizDemo
   lifeCount: 3
   scoreMultiplier: 10
-  timeLeft: 120
+  timeLeft: 0
   trashReceiver: {fileID: 1986655791}
   trashbin: {fileID: 3814250309040444363}
   trashbinController: {fileID: 969150121}
